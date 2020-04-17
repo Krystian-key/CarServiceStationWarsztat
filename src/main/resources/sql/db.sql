@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `CarServiceStation`.`employees`
     `password`         VARCHAR(245) NULL,
     `super_admin`      TINYINT(10)  NULL,
     `telephone_number` INT(245)     NULL,
-    `Notes`            TEXT(1000)   NULL,
+    `notes`            TEXT(1000)   NULL,
     `hourly_rate`      DECIMAL      NULL,
     `quantity_hours`   DECIMAL      NULL,
     PRIMARY KEY (`id`),
@@ -19,12 +19,12 @@ CREATE TABLE IF NOT EXISTS `CarServiceStation`.`employees`
 
 CREATE TABLE IF NOT EXISTS `CarServiceStation`.customer
 (
-    `id`         INT          NOT NULL AUTO_INCREMENT,
-    `first_name` VARCHAR(245) NULL,
-    `last_name`  VARCHAR(245) NULL,
-    `email`      VARCHAR(245) NULL UNIQUE,
-    `address`    VARCHAR(245) NULL,
-    `telephone_number` INT(245) NULL,
+    `id`               INT          NOT NULL AUTO_INCREMENT,
+    `first_name`       VARCHAR(245) NULL,
+    `last_name`        VARCHAR(245) NULL,
+    `email`            VARCHAR(245) NULL UNIQUE,
+    `address`          VARCHAR(245) NULL,
+    `telephone_number` INT(245)     NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -55,13 +55,13 @@ CREATE TABLE IF NOT EXISTS `CarServiceStation`.`orders`
     `parts_cost`           DECIMAL      NULL,
     `hourly_rate`          INT          NULL,
     `repair_hours`         DECIMAL      NULL,
-    employees_id           INT          NOT NULL,
+    `employees_id`         INT          NOT NULL,
     `clients_id`           INT          NOT NULL,
     `vehicles_id`          INT          NOT NULL,
     PRIMARY KEY (`id`),
 
     CONSTRAINT
-        FOREIGN KEY (employees_id)
+        FOREIGN KEY (`employees_id`)
             REFERENCES `CarServiceStation`.`employees` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,

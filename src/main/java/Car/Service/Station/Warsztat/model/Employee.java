@@ -1,7 +1,5 @@
 package Car.Service.Station.Warsztat.model;
 
-import sun.security.util.Password;
-
 public class Employee {
     private int id;
     private String firstName;
@@ -10,7 +8,7 @@ public class Employee {
     private String password;
     private int superAdmin;
     private int telephoneNumber;
-    private String Notes;
+    private String notes;
     private double hourlyRate;
     private double quantityHours;
 
@@ -28,7 +26,7 @@ public class Employee {
         this.password = password;
         this.superAdmin = superAdmin;
         this.telephoneNumber = telephoneNumber;
-        Notes = notes;
+        this.notes = notes;
         this.hourlyRate = hourlyRate;
         this.quantityHours = quantityHours;
     }
@@ -41,7 +39,7 @@ public class Employee {
         this.password = password;
         this.superAdmin = superAdmin;
         this.telephoneNumber = telephoneNumber;
-        Notes = notes;
+        this.notes = notes;
         this.hourlyRate = hourlyRate;
         this.quantityHours = quantityHours;
     }
@@ -103,11 +101,11 @@ public class Employee {
     }
 
     public String getNotes() {
-        return Notes;
+        return notes;
     }
 
     public void setNotes(String notes) {
-        Notes = notes;
+        this.notes = notes;
     }
 
     public double getHourlyRate() {
@@ -136,7 +134,7 @@ public class Employee {
                 ", password='" + password + '\'' +
                 ", superAdmin=" + superAdmin +
                 ", telephoneNumber=" + telephoneNumber +
-                ", Notes='" + Notes + '\'' +
+                ", Notes='" + notes + '\'' +
                 ", hourlyRate=" + hourlyRate +
                 ", quantityHours=" + quantityHours +
                 '}';
