@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `CarServiceStation`.`orders`
     `hourly_rate`          INT          NULL,
     `repair_hours`         DECIMAL      NULL,
     `employees_id`         INT          NOT NULL,
-    `clients_id`           INT          NOT NULL,
+    `customer_id`           INT          NOT NULL,
     `vehicles_id`          INT          NOT NULL,
     PRIMARY KEY (`id`),
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `CarServiceStation`.`orders`
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT
-        FOREIGN KEY (`clients_id`)
+        FOREIGN KEY (`customer_id`)
             REFERENCES `CarServiceStation`.customer (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,

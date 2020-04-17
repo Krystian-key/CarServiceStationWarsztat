@@ -1,6 +1,5 @@
 package Car.Service.Station.Warsztat.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Order {
@@ -15,8 +14,9 @@ public class Order {
     private int hourlyRate;
     private double repairHours;
     private int employeesId;
-    private int clientsId;
+    private int customerId;
     private int vehiclesId;
+
 
     public Order() {
     }
@@ -37,14 +37,14 @@ public class Order {
         this.id = id;
     }
 
-    public Order(int id, int employeesId, int clientsId, int vehiclesId) {
+    public Order(int id, int employeesId, int customerId, int vehiclesId) {
         this.id = id;
         this.employeesId = employeesId;
-        this.clientsId = clientsId;
+        this.customerId = customerId;
         this.vehiclesId = vehiclesId;
     }
 
-    public Order(int id, Date acceptedDate, Date planedDate, Date startDate, String descriptionProblems, String descriptionRepair, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeesId, int clientsId, int vehiclesId) {
+    public Order(int id, Date acceptedDate, Date planedDate, Date startDate, String descriptionProblems, String descriptionRepair, double repairCost, double partsCost, int hourlyRate, double repairHours, int employeesId, int customerId, int vehiclesId) {
         this.id = id;
         this.acceptedDate = acceptedDate;
         this.planedDate = planedDate;
@@ -56,7 +56,7 @@ public class Order {
         this.hourlyRate = hourlyRate;
         this.repairHours = repairHours;
         this.employeesId = employeesId;
-        this.clientsId = clientsId;
+        this.customerId = customerId;
         this.vehiclesId = vehiclesId;
     }
 
@@ -148,12 +148,12 @@ public class Order {
         this.employeesId = employeesId;
     }
 
-    public int getClientsId() {
-        return clientsId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setClientsId(int clientsId) {
-        this.clientsId = clientsId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getVehiclesId() {
@@ -178,7 +178,7 @@ public class Order {
                 ", hourlyRate=" + hourlyRate +
                 ", repairHours=" + repairHours +
                 ", employeesId=" + employeesId +
-                ", clientsId=" + clientsId +
+                ", clientsId=" + customerId +
                 ", vehiclesId=" + vehiclesId +
                 '}';
     }

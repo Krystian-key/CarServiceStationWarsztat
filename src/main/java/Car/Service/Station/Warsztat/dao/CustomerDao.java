@@ -14,6 +14,13 @@ public class CustomerDao {
     private static final String UPDATE_CUSTOMER_QUERY = "UPDATE customer SET customer first_name = ?, last_name = ?, email = ?, address = ?, telephone_number = ? WHERE id = ?;";
     private static final String DELETE_CUSTOMER_QUERY = "DELETE FROM customer WHERE id = ?;";
 
+    /**
+     * Read all Customers.
+     *
+     * @param id
+     * @return
+     */
+
     public Customer read(int id) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(READ_CUSTOMER_QUERY);
