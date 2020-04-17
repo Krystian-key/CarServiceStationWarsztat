@@ -17,6 +17,13 @@ public class VehicleDao {
             " gear_box = ?,registration_number = ?, model = ?, next_technical_review = ? WHERE id = ?;";
     private static final String DELETE_VEHICLES_QUERY = "DELETE FROM vehicles WHERE id = ?;";
 
+    /**
+     * Read all Vehicle by Id.
+     *
+     * @param id
+     * @return
+     */
+
     public Vehicle read(int id) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(READ_VEHICLES_QUERY);
@@ -40,6 +47,12 @@ public class VehicleDao {
         }
         return null;
     }
+
+    /**
+     * Read all Vehicle.
+     *
+     * @return
+     */
 
     public List<Vehicle> readAll() {
         List<Vehicle> vehicleArrayList = new ArrayList<>();
@@ -65,6 +78,13 @@ public class VehicleDao {
         return vehicleArrayList;
     }
 
+    /**
+     * Create Vehicle.
+     *
+     * @param vehicle
+     * @return
+     */
+
     public Vehicle create(Vehicle vehicle) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement =
@@ -89,6 +109,12 @@ public class VehicleDao {
         }
     }
 
+    /**
+     * Update Vehicle by Id.
+     *
+     * @param vehicle
+     */
+
     public void update(Vehicle vehicle) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_VEHICLES_QUERY);
@@ -106,6 +132,12 @@ public class VehicleDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete Vehicle by Id.
+     *
+     * @param id
+     */
 
     public void delete(int id) {
         try (Connection connection = DbUtil.getConnection();

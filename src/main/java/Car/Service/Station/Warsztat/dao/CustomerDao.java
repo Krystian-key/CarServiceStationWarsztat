@@ -15,7 +15,7 @@ public class CustomerDao {
     private static final String DELETE_CUSTOMER_QUERY = "DELETE FROM customer WHERE id = ?;";
 
     /**
-     * Read all Customers.
+     * Read all Customers by Id.
      *
      * @param id
      * @return
@@ -42,6 +42,12 @@ public class CustomerDao {
         return null;
     }
 
+    /**
+     * Read all Customers.
+     *
+     * @return
+     */
+
     public List<Customer> readAll() {
         List<Customer> customerArrayList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
@@ -62,6 +68,13 @@ public class CustomerDao {
         }
         return customerArrayList;
     }
+
+    /**
+     * Create Customers.
+     *
+     * @param customer
+     * @return
+     */
 
     public Customer create(Customer customer) {
         try (Connection connection = DbUtil.getConnection()) {
@@ -84,6 +97,12 @@ public class CustomerDao {
         }
     }
 
+    /**
+     * Update Customers by Id.
+     *
+     * @param customer
+     */
+
     public void update(Customer customer) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_CUSTOMER_QUERY);
@@ -98,6 +117,12 @@ public class CustomerDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete Customers by Id.
+     *
+     * @param id
+     */
 
     public void delete(int id) {
         try (Connection connection = DbUtil.getConnection();

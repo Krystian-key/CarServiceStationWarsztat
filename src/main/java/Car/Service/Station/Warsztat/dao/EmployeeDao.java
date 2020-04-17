@@ -17,6 +17,13 @@ public class EmployeeDao {
             "super_admin = ?, telephone_number = ?, notes = ?, hourly_rate = ?, quantity_hours = ? WHERE id = ?;";
     private static final String DELETE_EMPLOYEES_QUERY = "DELETE FROM employees WHERE id = ?;";
 
+    /**
+     * Read all Employee by Id.
+     *
+     * @param id
+     * @return
+     */
+
     public Employee read(int id) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(READ_EMPLOYEES_QUERY);
@@ -41,6 +48,12 @@ public class EmployeeDao {
         }
         return null;
     }
+
+    /**
+     * Read all Employee.
+     *
+     * @return
+     */
 
     public List<Employee> readAll() {
         List<Employee> employeeArrayList = new ArrayList<>();
@@ -67,6 +80,13 @@ public class EmployeeDao {
         return employeeArrayList;
     }
 
+    /**
+     * Create Employee.
+     *
+     * @param employee
+     * @return
+     */
+
     public Employee create(Employee employee) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement =
@@ -92,6 +112,12 @@ public class EmployeeDao {
         }
     }
 
+    /**
+     * Update Employee by Id.
+     *
+     * @param employee
+     */
+
     public void update(Employee employee) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEES_QUERY);
@@ -110,6 +136,12 @@ public class EmployeeDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete Employee by Id.
+     *
+     * @param id
+     */
 
     public void delete(int id) {
         try (Connection connection = DbUtil.getConnection();

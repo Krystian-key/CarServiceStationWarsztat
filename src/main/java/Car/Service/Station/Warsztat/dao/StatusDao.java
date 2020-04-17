@@ -15,6 +15,13 @@ public class StatusDao {
     private static final String UPDATE_STATUS_QUERY = "UPDATE status SET status status = ?, order_id = ? WHERE id = ?;";
     private static final String DELETE_STATUS_QUERY = "DELETE FROM status WHERE id = ?;";
 
+    /**
+     * Read all Status by Id.
+     *
+     * @param id
+     * @return
+     */
+
     public Status read(int id) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(READ_STATUS_QUERY);
@@ -32,6 +39,12 @@ public class StatusDao {
         }
         return null;
     }
+
+    /**
+     * Read all Status.
+     *
+     * @return
+     */
 
     public List<Status> readAll() {
         List<Status> customerArrayList = new ArrayList<>();
@@ -51,6 +64,13 @@ public class StatusDao {
         return customerArrayList;
     }
 
+    /**
+     * Create Status.
+     *
+     * @param status
+     * @return
+     */
+
     public Status create(Status status) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement =
@@ -69,6 +89,12 @@ public class StatusDao {
         }
     }
 
+    /**
+     * Update Status by Id.
+     *
+     * @param status
+     */
+
     public void update(Status status) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_STATUS_QUERY);
@@ -80,6 +106,12 @@ public class StatusDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete Status by Id.
+     *
+     * @param id
+     */
 
     public void delete(int id) {
         try (Connection connection = DbUtil.getConnection();

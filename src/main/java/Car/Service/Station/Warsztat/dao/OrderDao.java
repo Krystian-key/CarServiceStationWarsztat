@@ -18,7 +18,7 @@ public class OrderDao {
     private static final String DELETE_ORDERS_QUERY = "DELETE FROM orders WHERE id = ?;";
 
     /**
-     * Read all Orders.
+     * Read all Orders by Id.
      *
      * @param id
      * @return
@@ -52,6 +52,12 @@ public class OrderDao {
         return null;
     }
 
+    /**
+     * Read all Order.
+     *
+     * @return
+     */
+
     public List<Order> readAll() {
         List<Order> orderArrayList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
@@ -79,6 +85,13 @@ public class OrderDao {
         }
         return orderArrayList;
     }
+
+    /**
+     * Create Order.
+     *
+     * @param order
+     * @return
+     */
 
     public Order create(Order order) {
         try (Connection connection = DbUtil.getConnection()) {
@@ -108,6 +121,12 @@ public class OrderDao {
         }
     }
 
+    /**
+     * Update Order by Id.
+     *
+     * @param order
+     */
+
     public void update(Order order) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_ORDERS_QUERY);
@@ -129,6 +148,12 @@ public class OrderDao {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete Order by Id.
+     *
+     * @param id
+     */
 
     public void delete(int id) {
         try (Connection connection = DbUtil.getConnection();
