@@ -10,7 +10,7 @@ import java.util.List;
 public class CustomerDao {
     private static final String READ_CUSTOMER_QUERY = "SELECT * FROM customer WHERE id = ?;";
     private static final String READ_ALL_CUSTOMER_QUERY = "SELECT * FROM customer;";
-    private static final String CREATE_CUSTOMER_QUERY = "INSERT INTO customer(first_name, last_name, email, address, telephone_number) VALUES(?,?,?,?,?);";
+    private static final String CREATE_CUSTOMER_QUERY = "INSERT INTO customer(first_name, last_name, email, address, telephone_number) VALUES (?,?,?,?,?);";
     private static final String UPDATE_CUSTOMER_QUERY = "UPDATE customer SET customer first_name = ?, last_name = ?, email = ?, address = ?, telephone_number = ? WHERE id = ?;";
     private static final String DELETE_CUSTOMER_QUERY = "DELETE FROM customer WHERE id = ?;";
 
